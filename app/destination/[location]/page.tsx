@@ -101,7 +101,7 @@ export default function DestinationPage({
           </div>
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

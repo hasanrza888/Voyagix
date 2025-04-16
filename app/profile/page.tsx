@@ -50,7 +50,7 @@ export default function ProfilePage() {
         <main className="flex-1 flex items-center justify-center">
           <p>Loading profile...</p>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     )
   }
@@ -104,7 +104,7 @@ export default function ProfilePage() {
           </div>
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

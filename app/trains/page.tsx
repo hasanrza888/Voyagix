@@ -33,7 +33,7 @@ export default function TrainsPage() {
           <TrainsList />
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Dialog,
   DialogContent,
@@ -16,22 +16,24 @@ import {
   DialogTitle,
   DialogTrigger,
   DialogClose,
-} from "@/components/ui/dialog"
-import { Menu, Search, User } from "lucide-react"
+} from "@/components/ui/dialog";
+import { Menu, Search, User } from "lucide-react";
 
 export function Header() {
-  const router = useRouter()
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const [searchQuery, setSearchQuery] = useState("")
-  const [isSearchDialogOpen, setIsSearchDialogOpen] = useState(false)
+  const router = useRouter();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchDialogOpen, setIsSearchDialogOpen] = useState(false);
 
   const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (searchQuery.trim()) {
-      setIsSearchDialogOpen(false)
-      router.push(`/destination/${searchQuery.toLowerCase().replace(/\s+/g, "-")}`)
+      setIsSearchDialogOpen(false);
+      router.push(
+        `/destination/${searchQuery.toLowerCase().replace(/\s+/g, "-")}`
+      );
     }
-  }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -71,25 +73,31 @@ export function Header() {
             <span className="text-xl font-bold tracking-tight">Voyagix</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6">
-            <Link href="/flights" className="text-sm font-medium hover:underline underline-offset-4">
+            <Link
+              href="/flights"
+              className="text-sm font-medium hover:underline underline-offset-4"
+            >
               Flights
             </Link>
-            <Link href="/trains" className="text-sm font-medium hover:underline underline-offset-4">
+            <Link
+              href="/trains"
+              className="text-sm font-medium hover:underline underline-offset-4"
+            >
               Trains
             </Link>
-            <Link href="/buses" className="text-sm font-medium hover:underline underline-offset-4">
+            <Link
+              href="/buses"
+              className="text-sm font-medium hover:underline underline-offset-4"
+            >
               Buses
-            </Link>
-            <Link href="/about" className="text-sm font-medium hover:underline underline-offset-4">
-              About
-            </Link>
-            <Link href="/contact" className="text-sm font-medium hover:underline underline-offset-4">
-              Contact
             </Link>
           </nav>
         </div>
         <div className="flex items-center gap-2">
-          <Dialog open={isSearchDialogOpen} onOpenChange={setIsSearchDialogOpen}>
+          <Dialog
+            open={isSearchDialogOpen}
+            onOpenChange={setIsSearchDialogOpen}
+          >
             <DialogTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Search className="h-5 w-5" />
@@ -99,9 +107,14 @@ export function Header() {
             <DialogContent className="sm:max-w-md">
               <DialogHeader>
                 <DialogTitle>Search Destinations</DialogTitle>
-                <DialogDescription>Enter a city or destination to find available travel options.</DialogDescription>
+                <DialogDescription>
+                  Enter a city or destination to find available travel options.
+                </DialogDescription>
               </DialogHeader>
-              <form onSubmit={handleSearch} className="flex items-center space-x-2">
+              <form
+                onSubmit={handleSearch}
+                className="flex items-center space-x-2"
+              >
                 <div className="grid flex-1 gap-2">
                   <Input
                     type="text"
@@ -118,22 +131,30 @@ export function Header() {
                 </DialogClose>
               </form>
               <div className="mt-4">
-                <h4 className="mb-2 text-sm font-medium">Popular Destinations</h4>
+                <h4 className="mb-2 text-sm font-medium">
+                  Popular Destinations
+                </h4>
                 <div className="flex flex-wrap gap-2">
-                  {["New York", "Paris", "London", "Tokyo", "Sydney"].map((city) => (
-                    <Button
-                      key={city}
-                      variant="outline"
-                      size="sm"
-                      onClick={() => {
-                        setSearchQuery(city)
-                        setIsSearchDialogOpen(false)
-                        router.push(`/destination/${city.toLowerCase().replace(/\s+/g, "-")}`)
-                      }}
-                    >
-                      {city}
-                    </Button>
-                  ))}
+                  {["New York", "Paris", "London", "Tokyo", "Sydney"].map(
+                    (city) => (
+                      <Button
+                        key={city}
+                        variant="outline"
+                        size="sm"
+                        onClick={() => {
+                          setSearchQuery(city);
+                          setIsSearchDialogOpen(false);
+                          router.push(
+                            `/destination/${city
+                              .toLowerCase()
+                              .replace(/\s+/g, "-")}`
+                          );
+                        }}
+                      >
+                        {city}
+                      </Button>
+                    )
+                  )}
                 </div>
               </div>
             </DialogContent>
@@ -150,5 +171,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }

@@ -20,7 +20,7 @@ export default function BookingPage({
           </div>
         </div>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

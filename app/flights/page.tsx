@@ -33,7 +33,7 @@ export default function FlightsPage() {
           <FlightsList />
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

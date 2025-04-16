@@ -33,7 +33,7 @@ export default function BusesPage() {
           <BusesList />
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
